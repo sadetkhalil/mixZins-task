@@ -1,1 +1,81 @@
+Test Case 1: Monthly Deposit Calculation for the first year 
+
+Scenario: Calculate monthly deposit for the first year 
+Given the user has opted for a monthly deposit of EUR 100 starting from 07.03.2025
+When the user checks the monthly deposit amount
+Then the system should display the deposit amount as EUR 100
+And the total deposit for the first year should be EUR 1,200
+
+Test Case 2: Monthly Deposit Calculation for the second year
+
+Scenario: Calculate monthly deposit for the second year
+Given the user has opted for a monthly deposit of EUR 105 starting from 09.03.2026
+When the user checks the monthly deposit amount
+Then the system should display the deposit amount as EUR 105
+And the total deposit for the second year should be EUR 1,260
+
+Test Case 3: Maximum State Premium Calculation
+
+Scenario: Calculate state premium for 2025 (1.5%)
+Given the user deposits EUR 100 per month in 2025 (max EUR 1,200 annually)
+When the state premium is calculated for 2025
+Then the system should apply a 1.5% premium on EUR 1,200
+And the state premium amount should be EUR 18
+
+Test Case 4: Calculate Interest Calculation (Maximum Interest Scenario)
+
+Scenario: Check interest calculation for the first three years (fixed 2.25%)
+Given the user has opted for a MixZins plan with a 2.25% interest rate for the first three years
+When the user checks the interest accrued for the first year
+Then the system should calculate the interest at 2.25% for the first year
+And the total interest for the first year should match the expected value
+
+Test Case 5: Check interest calculation post-2028 with maximum EURIBOR rate
+
+Scenario: Check if interest is calculated correctly post-2028 with maximum EURIBOR rate
+Given the EURIBOR rate is set to 4% after 2028
+When the interest rate is calculated for the period from March 2028
+Then the system should apply the capped interest rate of 4% for the remaining duration
+
+Test Case 6: Correct Application of Capital Gains Tax (KESt) in Maximum Scenario
+
+Scenario: Verify KESt deduction on interest for maximum scenario
+Given the user has earned EUR 200 in interest over the year
+When the capital gains tax (KESt) is calculated
+Then the system should apply the tax rate (e.g., 25%)
+And the KESt should be EUR 50
+And the final balance should reflect the tax deduction
+
+Test Case 7: Verify Minimum State Premium Calculation (2025)
+
+Scenario: Check if state premium for 2025 is calculated correctly (1.5%)
+Given the user deposits EUR 100 per month in 2025 (max EUR 1,200 annually)
+When the state premium is calculated for 2025
+Then the system should apply a 1.5% premium on EUR 1,200
+And the state premium amount should be EUR 18
+
+Test Case 8: Verify Interest Calculation (Minimum Interest Scenario)
+
+Scenario: Correct interest calculation for the first three years (fixed 2.25%)
+Given the user has opted for a MixZins plan with a 2.25% interest rate for the first three years
+When the user checks the interest accrued for the first year
+Then the system should calculate the interest at 2.25% for the first year
+And the total interest for the first year should match the expected value
+
+Test Case 9: Correct Application of Capital Gains Tax (KESt) in Minimum Scenario
+
+Scenario: Verify KESt deduction on interest for minimum scenario
+Given the user has earned EUR 50 in interest over the year
+When the capital gains tax (KESt) is calculated
+Then the system should apply the tax rate (e.g., 25%)
+And the KESt should be EUR 12.50
+And the final balance should reflect the tax deduction
+
+Test Case 10: Verify Final Balance Calculation (Minimum Scenario)
+
+Scenario: Check if final balance is calculated correctly with minimum state premium and interest
+Given the user has opted for the minimum state premium of 1.5% from 2026 and the minimum interest rate of 0.1%
+When the final balance is calculated after 6 years
+Then the final balance should be EUR 8,328.98
+And the system should calculate the correct interest and premium for the full duration of the contract
 
