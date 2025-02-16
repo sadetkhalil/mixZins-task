@@ -1,1 +1,45 @@
+### **Test Plan for Building Savings Plan with MixZins Tarif (MZT)**
 
+#### **Objective:**
+Ensure that the MixZins Tarif (MZT) building savings plan correctly calculates deposits, state premiums, interest, tax, fees, and final balances based on the provided scenarios, delivering accurate results.
+
+#### **Scope:**
+- Verifying monthly deposit amounts and their correct increase over time.
+- Validating the calculation of total deposits.
+- Verifying the correct application of the **state premium** (government bonus) in both scenarios (maximum and minimum).
+- Ensuring interest calculations reflect the correct rates for both the fixed period (until 29.02.2028) and the variable interest period (after 29.02.2028).
+- Correct application of **capital gains tax (KESt)** and **account management fee**.
+- Verifying the final balance calculations in both **maximum** and **minimum scenarios**.
+
+#### **Test Items:**
+1. **Deposit Structure**: 
+   - Verify monthly deposits from March 2025 to March 2030.
+2. **State Premium Calculation**:
+   - Ensure correct calculation for 2025 (1.5%) and 2026 onward (up to 4%).
+3. **Interest Rate Calculations**:
+   - Verify the application of the fixed interest rate (2.25%) until 29.02.2028.
+   - Validate the variable interest rate (based on 12-month EURIBOR) after 29.02.2028.
+4. **Tax and Fees**:
+   - Ensure the capital gains tax (KESt) is deducted correctly.
+   - Ensure the account management fee is deducted correctly.
+5. **Final Balance Calculation**:
+   - Test the calculations for both the maximum and minimum scenarios, considering deposits, premiums, interest, taxes, and fees.
+
+#### **Test Approach:**
+1. **Unit Testing**: 
+   - Test each individual calculation (monthly deposits, state premium, interest rate, tax, fees, final balance).
+2. **Integration Testing**:
+   - Test the full process from deposit to final balance, ensuring all steps are integrated correctly.
+3. **Boundary Testing**:
+   - Test edge cases like maximum and minimum premium limits, interest rate boundary conditions (0.1% and 4%), and changing monthly deposit values.
+4. **Regression Testing**:
+   - After implementing changes to the calculation logic or interest rate assumptions, verify that previous calculations remain intact.
+
+#### **Risks and Assumptions:**
+- **Assumptions**:
+   - The EURIBOR rates will remain within the expected range, with a minimum of 0.1% and a maximum of 4%.
+   - The state premium will be correctly calculated as 4% for the maximum scenario and 1.5% for the minimum scenario from 2026 onwards.
+- **Risks**:
+   - **Changes in Tax Laws**: Changes to capital gains tax (KESt) could affect calculations.
+   - **Uncertainty in Future Interest Rates**: The variable interest rate after 29.02.2028 could fluctuate significantly based on the EURIBOR.
+   - **Changes in Account Management Fee**: Since the fee depends on the Raiffeisen Banking Group’s wage agreements, it may change over time.
