@@ -3,6 +3,15 @@
 Platform:
  - OS: [Web]
 
+Environment:
+ - Test
+
+Severity:
+- Minor
+
+Priority:
+- Low 
+
 Describe the bug
 When the user enters a 4-digit value in the 'Desired Savings Amount' box, the slider moves all the way to the end and then resets to the correct position corresponding to the entered value. This commonly occurs when typing promptly.
 
