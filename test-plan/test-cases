@@ -1,10 +1,10 @@
-Test Case 1: Monthly Deposit Calculation for the first year 
+**Test Case 1: Monthly Deposit Calculation for the first year**
 
-Scenario: Calculate monthly deposit for the first year 
-Given the user has opted for a monthly deposit of EUR 100 starting from 07.03.2025
-When the user checks the monthly deposit amount
-Then the system should display the deposit amount as EUR 100
-And the total deposit for the first year should be EUR 1,200
+**Scenario:** Calculate monthly deposit for the first year 
+**Given** the user has opted for a monthly deposit of EUR 100 starting from 07.03.2025
+**When** the user checks the monthly deposit amount
+**Then** the system should display the deposit amount as EUR 100
+**And** the total deposit for the first year should be EUR 1,200
 
 Test Case 2: Monthly Deposit Calculation for the second year
 
